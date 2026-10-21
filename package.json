@@ -1,0 +1,49 @@
+{
+  "name": "caddyship",
+  "version": "0.1.0",
+  "description": "Interactive CLI that publishes Docker apps behind Caddy over SSH, with optional WEDOS DNS automation.",
+  "type": "module",
+  "bin": {
+    "caddyship": "dist/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "prepublishOnly": "npm run typecheck && npm test && npm run build"
+  },
+  "keywords": [
+    "caddy",
+    "caddyfile",
+    "reverse-proxy",
+    "ssh",
+    "docker",
+    "wedos",
+    "dns",
+    "cli"
+  ],
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public",
+    "provenance": false
+  },
+  "dependencies": {
+    "@clack/prompts": "^1.8.1",
+    "commander": "^15.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.5",
+    "tsup": "^9.0.0",
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.5"
+  }
+}
